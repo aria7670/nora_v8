@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نورا - پل فرماندهی | Nora Command Deck</title>
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <h1><i class="fas fa-brain"></i> نورا - پل فرماندهی</h1>
+                    <span class="version">v7.0</span>
+                </div>
+                <div class="header-controls">
+                    <button class="btn btn-primary" onclick="triggerReflection()">
+                        <i class="fas fa-sync-alt"></i> خودبازبینی
+                    </button>
+                    <button class="btn btn-secondary" onclick="generateEvolution()">
+                        <i class="fas fa-rocket"></i> تکامل
+                    </button>
+                    <div class="status-indicator" id="systemStatus">
+                        <div class="status-dot active"></div>
+                        <span>فعال</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- System Vitals -->
+            <section class="vitals-section">
+                <h2><i class="fas fa-heartbeat"></i> وضعیت سیستم</h2>
+                <div class="vitals-grid" id="systemVitals">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- KPI Widgets -->
+            <section class="kpi-section">
+                <h2><i class="fas fa-chart-line"></i> شاخص‌های کلیدی</h2>
+                <div class="kpi-grid" id="kpiWidgets">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Platform Metrics -->
+            <section class="platforms-section">
+                <h2><i class="fas fa-globe"></i> عملکرد پلتفرم‌ها</h2>
+                <div class="platforms-grid" id="platformMetrics">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Learning Channels -->
+            <section class="learning-section">
+                <h2><i class="fas fa-graduation-cap"></i> کانال‌های یادگیری</h2>
+                <div class="learning-content">
+                    <div class="learning-controls">
+                        <button class="btn btn-success" onclick="showAddChannelModal()">
+                            <i class="fas fa-plus"></i> افزودن کانال
+                        </button>
+                        <button class="btn btn-info" onclick="refreshLearningChannels()">
+                            <i class="fas fa-refresh"></i> بروزرسانی
+                        </button>
+                    </div>
+                    <div class="learning-channels" id="learningChannels">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Live Activity -->
+            <section class="activity-section">
+                <h2><i class="fas fa-stream"></i> فعالیت زنده</h2>
+                <div class="activity-feed" id="liveActivity">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <!-- Consciousness State -->
+            <div class="sidebar-widget">
+                <h3><i class="fas fa-mind-share"></i> حالت آگاهی</h3>
+                <div id="consciousnessState">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Memory Stats -->
+            <div class="sidebar-widget">
+                <h3><i class="fas fa-memory"></i> آمار حافظه</h3>
+                <div id="memoryStats">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Metacognition -->
+            <div class="sidebar-widget">
+                <h3><i class="fas fa-brain-circuit"></i> فراشناخت</h3>
+                <div id="metacognitionStatus">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Add Channel Modal -->
+    <div id="addChannelModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>افزودن کانال یادگیری جدید</h3>
+                <span class="close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="addChannelForm">
+                    <div class="form-group">
+                        <label for="channelId">شناسه کانال:</label>
+                        <input type="text" id="channelId" placeholder="@channel_name یا ID" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="channelName">نام کانال:</label>
+                        <input type="text" id="channelName" placeholder="نام نمایشی کانال" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="channelTopics">موضوعات (با کاما جدا کنید):</label>
+                        <input type="text" id="channelTopics" placeholder="AI, technology, startup">
+                    </div>
+                    <div class="form-group">
+                        <label for="learningWeight">وزن یادگیری (0-1):</label>
+                        <input type="number" id="learningWeight" min="0" max="1" step="0.1" value="0.7">
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="channelActive" checked>
+                            فعال باشد
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" onclick="addLearningChannel()">افزودن</button>
+                <button class="btn btn-secondary" onclick="closeModal()">انصراف</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

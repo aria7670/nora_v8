@@ -1,0 +1,67 @@
+
+{
+  "enabled": true,
+  "report_channel": "@nora_activities_log",
+  "report_frequency": "real_time",
+  "batch_size": 3,
+  "report_types": {
+    "autonomous_decisions": {
+      "enabled": true,
+      "priority": "high",
+      "template": "decision_template"
+    },
+    "learning_achievements": {
+      "enabled": true,
+      "priority": "medium", 
+      "template": "learning_template"
+    },
+    "performance_metrics": {
+      "enabled": true,
+      "priority": "low",
+      "template": "performance_template"
+    },
+    "error_alerts": {
+      "enabled": true,
+      "priority": "critical",
+      "template": "error_template"
+    },
+    "user_interactions": {
+      "enabled": true,
+      "priority": "medium",
+      "template": "interaction_template"
+    },
+    "system_events": {
+      "enabled": true,
+      "priority": "low",
+      "template": "system_template"
+    }
+  },
+  "daily_summary": {
+    "enabled": true,
+    "time": "23:00",
+    "template": "daily_summary_template"
+  },
+  "weekly_summary": {
+    "enabled": true,
+    "day": "sunday",
+    "time": "20:00", 
+    "template": "weekly_summary_template"
+  },
+  "alert_settings": {
+    "critical_errors": {
+      "enabled": true,
+      "immediate_notification": true,
+      "recipients": ["@aria_cdr76", "@aria_7670", "@nora_ai76"]
+    },
+    "performance_degradation": {
+      "enabled": true,
+      "threshold": 0.7,
+      "notification_delay": 300
+    },
+    "security_threats": {
+      "enabled": true,
+      "immediate_notification": true,
+      "escalation_required": true
+    }
+  }
+}
